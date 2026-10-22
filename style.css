@@ -1,25 +1,29 @@
 :root {
-  --bg: #ffffff;
-  --fg: #09090b;
-  --muted: #71717a;
-  --border: #e4e4e7;
-  --accent: #f4f4f5;
-  --primary: #18181b;
-  --primary-fg: #fafafa;
-  --logo-bg: #f4f4f5;
-  --dock-shadow: 0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.05), 0 12px 24px rgba(0,0,0,.05);
+  --bg: #f4f1ea;
+  --fg: #1c1a16;
+  --muted: #5e584e;
+  --faint: #8a8376;
+  --border: #ddd6c8;
+  --accent: #e9e4d9;
+  --primary: #1c1a16;
+  --primary-fg: #f4f1ea;
+  --logo-bg: #efece4;
+  --highlight: #a8761f;
+  --dock-shadow: 0 0 0 1px rgba(28,26,22,.03), 0 2px 4px rgba(28,26,22,.05), 0 12px 24px rgba(28,26,22,.06);
 }
 
 html.dark {
-  --bg: #08090a;
-  --fg: #fafafa;
-  --muted: #a1a1aa;
-  --border: #27272a;
-  --accent: #27272a;
-  --primary: #fafafa;
-  --primary-fg: #18181b;
-  --logo-bg: #fafafa;
-  --dock-shadow: 0 -20px 80px -20px rgba(255,255,255,.12) inset;
+  --bg: #121110;
+  --fg: #ece7dc;
+  --muted: #b3ab9e;
+  --faint: #8a8174;
+  --border: #2e2a25;
+  --accent: #24211d;
+  --primary: #ece7dc;
+  --primary-fg: #121110;
+  --logo-bg: #ece7dc;
+  --highlight: #e8b64c;
+  --dock-shadow: 0 -20px 80px -20px rgba(236,231,220,.10) inset;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -83,7 +87,7 @@ h2 { font-size: 20px; font-weight: 700; line-height: 1.4; }
   flex: none; display: flex; align-items: center; justify-content: center;
   width: 48px; height: 48px; border-radius: 50%; overflow: hidden;
   border: 1px solid var(--border); background: var(--logo-bg);
-  color: #18181b; font-size: 13px; font-weight: 700;
+  color: #1c1a16; font-size: 13px; font-weight: 700;
 }
 .logo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
 .logo img.cover { object-fit: cover; padding: 0; }
@@ -92,7 +96,7 @@ h2 { font-size: 20px; font-weight: 700; line-height: 1.4; }
 .item h3, .project h3 {
   display: inline-flex; align-items: center; font-size: 14px; font-weight: 600; line-height: 1;
 }
-.date { font-size: 14px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.date { font-size: 14px; color: var(--faint); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .sub { font-size: 12px; margin-top: 6px; }
 .chev {
   width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2;
@@ -107,7 +111,7 @@ h2 { font-size: 20px; font-weight: 700; line-height: 1.4; }
 }
 .item:hover .desc, .item:focus-visible .desc { max-height: 160px; opacity: 1; margin-top: 8px; }
 
-.note { font-size: 13px; color: var(--muted); }
+.note { font-size: 13px; color: var(--faint); }
 .note a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Projects */
@@ -144,16 +148,14 @@ h2 { font-size: 20px; font-weight: 700; line-height: 1.4; }
   color: var(--fg); background: transparent; border: 1px solid var(--border); border-radius: 6px;
   outline: none;
 }
-.subscribe input::placeholder { color: var(--muted); }
+.subscribe input::placeholder { color: var(--faint); }
 .subscribe input:focus-visible { box-shadow: 0 0 0 1px var(--muted); }
 .subscribe button {
   height: 36px; padding: 4px 16px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
-  background: #fff; color: #1f2937; border: 1px solid #d1d5db; border-radius: 6px;
-  transition: background .15s ease;
+  background: var(--primary); color: var(--primary-fg); border: 1px solid var(--primary); border-radius: 6px;
+  transition: opacity .15s ease;
 }
-.subscribe button:hover { background: #f3f4f6; }
-html.dark .subscribe button { background: #374151; color: #fff; border: none; }
-html.dark .subscribe button:hover { background: #4b5563; }
+.subscribe button:hover { opacity: .88; }
 
 /* Books */
 .books { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
@@ -165,14 +167,14 @@ html.dark .subscribe button:hover { background: #4b5563; }
 .badge {
   display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 6px;
   font-size: 12px; font-weight: 600; background: var(--primary); color: var(--primary-fg);
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  box-shadow: none;
 }
 .badge.outline { background: transparent; color: var(--muted); border: 1px solid var(--border); box-shadow: none; font-weight: 500; white-space: nowrap; }
 
 /* Contact */
 #contact { align-items: center; text-align: center; padding: 48px 0; }
 #contact p { font-size: 20px; line-height: 1.6; color: var(--muted); }
-.blue { color: #3b82f6; text-decoration: none; }
+.blue { color: var(--highlight); text-decoration: none; }
 .blue:hover { text-decoration: underline; }
 
 /* Dock */
@@ -191,7 +193,7 @@ html.dark .subscribe button:hover { background: #4b5563; }
   height: 100%; padding: 8px 4px; border-radius: 999px; background: var(--bg);
   border: 1px solid var(--border); box-shadow: var(--dock-shadow);
 }
-html.dark .dock { border-color: rgba(255,255,255,.1); }
+
 .dock-item {
   position: relative; display: flex; align-items: center; justify-content: center;
   width: 40px; height: 40px; border-radius: 50%; color: var(--fg);
@@ -236,7 +238,7 @@ html.dark .icon-sun { display: block; }
 }
 
 /* Logo with no image (e.g. stealth startup) */
-.logo-dark { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background: #09090b; color: #a1a1aa; }
+.logo-dark { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background: #1c1a16; color: #b3ab9e; }
 
 .loc { display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; color: var(--muted); }
 .age { white-space: nowrap; }
