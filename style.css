@@ -141,6 +141,14 @@ h2 { font-size: 22px; font-weight: 600; line-height: 1.4; letter-spacing: -0.01e
 }
 .post span:first-child { font-weight: 500; }
 .post:hover span:first-child { text-decoration: underline; text-underline-offset: 3px; }
+.posts-more { max-height: 270px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+.posts-more[hidden] { display: none; }
+.see-more {
+  align-self: flex-start; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer;
+  padding: 4px 14px; color: var(--fg); background: transparent;
+  border: 1px solid var(--border); border-radius: 6px; transition: border-color .15s ease;
+}
+.see-more:hover { border-color: var(--muted); }
 
 /* Newsletter */
 .subscribe { display: flex; gap: 8px; margin: 8px 0; max-width: 448px; }

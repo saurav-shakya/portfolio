@@ -55,3 +55,13 @@ if (window.matchMedia('(hover: hover) and (min-width: 641px)').matches) {
     items.forEach(item => { item.style.width = item.style.height = ''; });
   });
 }
+
+// Writing: "See more" reveals older posts in a scrollable list
+const postsToggle = document.getElementById('posts-toggle');
+const postsMore = document.getElementById('posts-more');
+postsToggle.addEventListener('click', () => {
+  const open = postsMore.hidden;
+  postsMore.hidden = !open;
+  postsToggle.setAttribute('aria-expanded', open);
+  postsToggle.textContent = open ? 'See less' : 'See more';
+});
