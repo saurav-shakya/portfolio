@@ -133,6 +133,13 @@ h2 { font-size: 22px; font-weight: 600; line-height: 1.4; letter-spacing: -0.01e
 }
 .links a:hover { opacity: .8; }
 
+/* Open source contributions */
+.contribs { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+.contribs li { padding-left: 14px; position: relative; }
+.contribs li::before { content: ''; position: absolute; left: 0; top: .7em; width: 5px; height: 5px; border-radius: 50%; background: var(--faint); }
+.contribs a { color: var(--fg); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; font-variant-numeric: tabular-nums; }
+.contribs code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em; padding: 1px 4px; border-radius: 4px; background: var(--accent); color: var(--fg); }
+
 /* Writing */
 .posts { display: flex; flex-direction: column; }
 .post {
