@@ -65,3 +65,24 @@ postsToggle.addEventListener('click', () => {
   postsToggle.setAttribute('aria-expanded', open);
   postsToggle.textContent = open ? 'See less' : 'See more';
 });
+
+// Live GitHub star counts on the open source cards (cached for an hour)
+(function () {
+  var fmt = function (n) { return n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/, '') + 'k' : String(n); };
+  document.querySelectorAll('a.stars[data-repo]').forEach(function (el) {
+    var repo = el.getAttribute('data-repo'), key = 'stars:' + repo;
+    var show = function (n) { el.querySelector('span').textContent = fmt(n); el.hidden = false; };
+    try {
+      var c = JSON.parse(localStorage.getItem(key) || 'null');
+      if (c && Date.now() - c.t < 3600000) return show(c.n);
+    } catch (e) {}
+    fetch('https://api.github.com/repos/' + repo)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || typeof d.stargazers_count !== 'number') return;
+        show(d.stargazers_count);
+        try { localStorage.setItem(key, JSON.stringify({ n: d.stargazers_count, t: Date.now() })); } catch (e) {}
+      })
+      .catch(function () {});
+  });
+})();
