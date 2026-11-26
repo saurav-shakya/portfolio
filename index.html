@@ -54,7 +54,7 @@
       <h2 class="fade">About</h2>
       <div class="prose fade">
         <p>Tldr; BTech CS student who'd rather ship than sit still. Builder and startup founder at heart, with a soft spot for AI, research tools and products people actually use.</p>
-        <p>Right now most of my time goes into <a href="https://tryplany.com/" target="_blank" rel="noopener">Plany</a>, an AI-powered planning app backed by the Anthropic Startup Program and AWS Activate for Startups. I also contribute to open source, including Google's <a href="https://github.com/google/agentmesh" target="_blank" rel="noopener">agentmesh</a> and Asymptote Labs' <a href="https://github.com/Asymptote-Labs/agent-beacon" target="_blank" rel="noopener">Beacon</a>.</p>
+        <p>Right now most of my time goes into <a href="https://tryplany.com/" target="_blank" rel="noopener">Plany</a>, an AI-powered planning app backed by the Anthropic Startup Program and AWS Activate for Startups. I also contribute to open source, including Google's <a href="https://github.com/google/agentmesh" target="_blank" rel="noopener">agentmesh</a>, Asymptote Labs' <a href="https://github.com/Asymptote-Labs/agent-beacon" target="_blank" rel="noopener">Beacon</a> and HydraDB's <a href="https://github.com/hydra-db/selfgraph" target="_blank" rel="noopener">SelfGraph</a>.</p>
         <p>I care about building things that are genuinely useful, learning deeply (not just fast), and moving quickly without cutting corners.</p>
         <p>"No matter what you choose, build stuff and be around smart people." - Sam Altman</p>
       </div>
@@ -130,19 +130,44 @@
         <div class="project fade">
           <div class="item-row">
             <h3><a href="https://github.com/Asymptote-Labs/agent-beacon" target="_blank" rel="noopener">Beacon · Asymptote Labs</a></h3>
-            <span class="badge outline">Go · 4 PRs merged</span>
+            <span class="badge outline">Go · 10 PRs merged</span>
           </div>
           <p>Endpoint telemetry agent for AI coding tools (Claude Code, Codex, Cursor and more).</p>
           <ul class="contribs">
             <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1098" target="_blank" rel="noopener">#1098</a> Fixed event-ID collisions for cloned Hermes profiles, with locked shared state and <code>-race</code> tests.</li>
             <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1154" target="_blank" rel="noopener">#1154</a> Audited the runtime docs against the code: 36 fixes across 23 pages.</li>
             <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1183" target="_blank" rel="noopener">#1183</a> Made <code>sudo</code> hints platform-correct for Windows users.</li>
+            <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1232" target="_blank" rel="noopener">#1232</a> Redacted the credential after any <code>Authorization</code> scheme, not just the common ones.</li>
             <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1233" target="_blank" rel="noopener">#1233</a> Fixed <code>install --dry-run</code> on hosts without a scheduler.</li>
+            <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1303" target="_blank" rel="noopener">#1303</a> Accepted fractional hook timeouts in shared settings files.</li>
+            <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1316" target="_blank" rel="noopener">#1316</a> Named an elevated shell instead of <code>sudo</code> in <code>doctor</code> hints on Windows.</li>
+            <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1359" target="_blank" rel="noopener">#1359</a> Created <code>memory.db</code> private, and never on a read.</li>
+            <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1361" target="_blank" rel="noopener">#1361</a> Collected Hermes sessions larger than one sync budget.</li>
+            <li><a href="https://github.com/Asymptote-Labs/agent-beacon/pull/1373" target="_blank" rel="noopener">#1373</a> Read past session lines longer than the line limit in the Factory and OpenClaw collectors.</li>
           </ul>
           <div class="links">
             <a href="https://github.com/Asymptote-Labs/agent-beacon/pulls?q=is%3Apr+is%3Amerged+author%3Asaurav-shakya" target="_blank" rel="noopener">Merged PRs</a>
             <a href="https://github.com/Asymptote-Labs/agent-beacon" target="_blank" rel="noopener">Repo</a>
             <a class="stars" href="https://github.com/Asymptote-Labs/agent-beacon/stargazers" target="_blank" rel="noopener" data-repo="Asymptote-Labs/agent-beacon" aria-label="GitHub stars" hidden><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><span class="tabular"></span></a>
+          </div>
+        </div>
+        <div class="project fade">
+          <div class="item-row">
+            <h3><a href="https://github.com/hydra-db/selfgraph" target="_blank" rel="noopener">SelfGraph · HydraDB</a></h3>
+            <span class="badge outline">Python, TypeScript · 5 PRs merged</span>
+          </div>
+          <p>Versioned knowledge-graph SDK that turns text into a queryable graph. I found and reported each bug, then fixed it in both SDKs with cross-SDK conformance tests.</p>
+          <ul class="contribs">
+            <li><a href="https://github.com/hydra-db/selfgraph/pull/178" target="_blank" rel="noopener">#178</a> Re-settled superseded facts when a relation's <code>event_time</code> moves, so no two facts stay current under <code>max_count 1</code>.</li>
+            <li><a href="https://github.com/hydra-db/selfgraph/pull/254" target="_blank" rel="noopener">#254</a> Made PageRank retrieval deterministic: tied entities rank the same on every run and in both SDKs.</li>
+            <li><a href="https://github.com/hydra-db/selfgraph/pull/255" target="_blank" rel="noopener">#255</a> Rejected text and boolean number arguments and null <code>steps</code> in the Python MCP tools, matching TypeScript.</li>
+            <li><a href="https://github.com/hydra-db/selfgraph/pull/459" target="_blank" rel="noopener">#459</a> Added a coded error for a malformed percent escape in FalkorDB URL credentials.</li>
+            <li><a href="https://github.com/hydra-db/selfgraph/pull/460" target="_blank" rel="noopener">#460</a> Rejected non-boolean <code>include_invalidated</code> and <code>newest_first</code> flags with a coded error.</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/hydra-db/selfgraph/pulls?q=is%3Apr+is%3Amerged+author%3Asaurav-shakya" target="_blank" rel="noopener">Merged PRs</a>
+            <a href="https://github.com/hydra-db/selfgraph" target="_blank" rel="noopener">Repo</a>
+            <a class="stars" href="https://github.com/hydra-db/selfgraph/stargazers" target="_blank" rel="noopener" data-repo="hydra-db/selfgraph" aria-label="GitHub stars" hidden><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><span class="tabular"></span></a>
           </div>
         </div>
         <div class="project fade">
